@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './Form.css';
 import axios from 'axios';
 
+const cors = require('cors');
+
 const Form = () => {
   const [board, setBoard] = useState("");
 
@@ -22,12 +24,17 @@ const Form = () => {
     //   .catch((error) => {
     //     console.error(error);
     //   });
-    axios.post("/api/submit", formData)
+    axios.post("http://localhost:8080/api/submit", JSON.stringify(formData), {
+      headers: {
+        'Content-Type': 'application/json', // allows for JSON to be sent
+        'Access-Control-Allow-Origin': '*',
+      }
+    })
     .then((response) => {
       console.log(response.data);
     })
     .catch((error) => {
-      console.log(error);
+      console.log(error.response.data);
     });
   };
 
