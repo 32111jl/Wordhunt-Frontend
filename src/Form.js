@@ -24,7 +24,7 @@ const Form = () => {
     //   .catch((error) => {
     //     console.error(error);
     //   });
-    axios.post("http://localhost:8080/api/submit", JSON.stringify(formData), {
+    axios.post("http://localhost:8080/api/submit", formData, {
       headers: {
         'Content-Type': 'application/json', // allows for JSON to be sent
         'Access-Control-Allow-Origin': '*',
