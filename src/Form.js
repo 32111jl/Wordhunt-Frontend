@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import './Form.css';
+import Popup from './Popup';
 import axios from 'axios';
 
 const cors = require('cors');
 
 const Form = () => {
   const [board, setBoard] = useState("");
+  const [wordList, setWordList] = useState([]);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -13,17 +15,6 @@ const Form = () => {
     const formData = new FormData();
     formData.append("board", board);
 
-    // fetch("http://localhost:3001", {
-    //   method: "POST",
-    //   body: formData,
-    // })
-    //   .then((response) => response.json())
-    //   .then((data) => {
-    //     console.log(data);
-    //   })
-    //   .catch((error) => {
-    //     console.error(error);
-    //   });
     axios.post("http://localhost:8080/api/submit", formData, {
       headers: {
         'Content-Type': 'application/json', // allows for JSON to be sent
@@ -32,6 +23,7 @@ const Form = () => {
     })
     .then((response) => {
       console.log(response.data);
+      setWordList(response.data);
     })
     .catch((error) => {
       console.log(error.response.data);
@@ -43,19 +35,22 @@ const Form = () => {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label>
-        Board:
-        <input
-          type="text"
-          className="textInput"
-          placeholder="your board here..."
-          value={board}
-          onChange={handleChange}
-        />
-      </label>
-      <input type="submit" className="submitInput" value="Submit"/>
-    </form>
+    <div>
+      <form onSubmit={handleSubmit}>
+        <label>
+          Board:
+          <input
+            type="text"
+            className="textInput"
+            placeholder="your board here..."
+            value={board}
+            onChange={handleChange}
+          />
+        </label>
+        <input type="submit" className="submitInput" value="Submit"/>
+      </form>
+      <Popup wordList={wordList}/>
+    </div>
   );
 };
 

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import logo from './wordhunt.gif';
 import './App.css';
 import Form from './Form';
+import Popup from './Popup';
 
 function App() {
 
@@ -24,6 +25,7 @@ function App() {
           <input type="submit" className="submitInput" value="Submit"/>
         </form> */}
         <Form />
+        <Popup />
         <div className="wh-footer">
           <a
           className="github-link"
