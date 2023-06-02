@@ -26,13 +26,17 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: #585743;
+  positive: relative;
 }
 
 .wh-footer {
   color: #91a5ab;
   font-size: 1.0rem;
   position: absolute;
-  bottom: 2vh;
+  bottom: 1vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 @keyframes App-logo-spin {
@@ -49,9 +53,9 @@
 }
 
 .github-link {
-  margin-right: 2rem;
+  margin-right: 3rem;
 }
 
 .about-link {
-  margin-left: 2rem;
+  margin-left: 3rem;
 }

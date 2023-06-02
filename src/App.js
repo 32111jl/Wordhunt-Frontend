@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import logo from './wordhunt.gif';
 import './App.css';
 import Form from './Form';
@@ -6,9 +6,15 @@ import Popup from './Popup';
 
 function App() {
 
+  const [showPopup, setShowPopup] = useState(false);
+
   useEffect(() => {
     document.title = "WordHunt Solver";
   }, []);
+
+  const handleShowPopup = () => {
+    setShowPopup(true);
+  };
 
   return (
     <div className="solver">
@@ -24,8 +30,8 @@ function App() {
           </label>
           <input type="submit" className="submitInput" value="Submit"/>
         </form> */}
-        <Form />
-        <Popup />
+        <Form handleShowPopup={handleShowPopup} />
+        {showPopup && <Popup />}
         <div className="wh-footer">
           <a
           className="github-link"

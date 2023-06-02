@@ -21,7 +21,6 @@ input {
   font-size: 1.2rem;
 }
 
-/* make submit not as long */
 input[type="submit"] {
   width: 9rem;
   font: inherit;
