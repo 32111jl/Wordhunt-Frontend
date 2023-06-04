@@ -49,7 +49,7 @@ const Form = () => {
         </label>
         <input type="submit" className="submitInput" value="Submit"/>
       </form>
-      <Popup wordList={wordList}/>
+      {/* <Popup wordList={wordList}/> */}
     </div>
   );
 };

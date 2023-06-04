@@ -35,7 +35,7 @@ function Popup({ wordList = [] }) {
                   <button className="dark-mode" onClick={handleToggleMode}>
                     <img className="dark-mode-icon" src={darkModeIcon}></img>
                   </button>
-                  <button className="close-button" onClick={handleClose}>
+                  <button className="close-button" onClick={() => navigate(-1)}>
                     <img className="close-icon" src={closeIcon}></img>
                   </button>
                 </div>
