@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './Popup.css';
 import darkModeIcon from './dark-mode.svg';
 import closeIcon from './bot-left-arrow.svg';
@@ -6,13 +7,15 @@ import closeIcon from './bot-left-arrow.svg';
 function Popup({ wordList = [] }) {
 
   const [darkMode, setDarkMode] = useState(false);
+  const navigate = useNavigate();
 
   const handleToggleMode = () => {
     setDarkMode(!darkMode);
   };
 
   const handleClose = () => {
-    window.location.href = '/';
+    // window.location.href = '/';
+    navigate("/");
   };
 
   const renderPopup = () => {
