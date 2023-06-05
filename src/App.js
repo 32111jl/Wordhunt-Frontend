@@ -6,15 +6,19 @@ import Popup from './Popup';
 
 function App() {
 
-  const [showPopup, setShowPopup] = useState(false);
+  // const [showPopup, setShowPopup] = useState(false);
 
   useEffect(() => {
     document.title = "WordHunt Solver";
   }, []);
 
-  const handleShowPopup = () => {
-    setShowPopup(true);
-  };
+  // const handleShowPopup = () => {
+  //   setShowPopup(true);
+  // };
+
+  // const handleClosePopup = () => {
+  //   setShowPopup(false);
+  // };
 
   return (
     <div className="solver">
@@ -30,8 +34,10 @@ function App() {
           </label>
           <input type="submit" className="submitInput" value="Submit"/>
         </form> */}
-        <Form handleShowPopup={handleShowPopup} />
-        {showPopup && <Popup />}
+        {/* <Form handleShowPopup={ handleShowPopup } /> */}
+        <Form />
+        {/* {showPopup && <Popup onClose={ handleClosePopup } />} */}
+        <Popup />
         <div className="wh-footer">
           <a
           className="github-link"
