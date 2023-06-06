@@ -35,10 +35,15 @@ function Popup({ wordList = [], onClose }) {
                   ))}
                 </ul>
                 <div className="popup-controls">
-                  <button className="dark-mode" onClick={ handleToggleMode } >
+                  <button className="dark-mode-button"
+                  onClick={ handleToggleMode } 
+                  title="Enable dark mode">
                     <img className="dark-mode-icon" src={ darkModeIcon } ></img>
                   </button>
-                  <button className="close-button" onClick={ handleClose } >
+
+                  <button className="close-button"
+                  onClick={ handleClose }
+                  title="Start a new search">
                     <img className="close-icon" src={ closeIcon } ></img>
                   </button>
                 </div>

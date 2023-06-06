@@ -9,6 +9,8 @@
   justify-content: center;
   align-items: center;
   z-index: 999;
+  border: 2px solid transparent;
+  /* adding border fixes dark/close buttons */
 }
 
 .popup-inner {
@@ -45,23 +47,26 @@
   font-size: 1.375rem;
 }
 
-.popup.dark-mode {
-  background-color: #212625;
-}
-
 .popup-controls {
   position: absolute;
   top: 1rem;
-  right: 1rem;
+  right: 0.25rem;
   display: flex;
   align-items: center;
   width: 10%;
 }
 
-.dark-mode, .close-button {
+@media (max-width: 480px) {
+  .popup-controls {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
+
+.dark-mode-button, .close-button {
   background-color: transparent;
   border: none;
-  padding: 0.5rem;
+  padding: none;
   cursor: pointer;
 }
 
@@ -76,6 +81,12 @@
   height: 1.75rem;
 }
 
-.dark-mode-icon.dark-mode, .close-icon.dark-mode {
-  fill: white;
+.popup.dark-mode {
+  background-color: #212625;
+}
+
+.popup.dark-mode .popup-controls,
+.popup.dark-mode .popup-header,
+.popup.dark-mode .word-list li {
+  filter: invert(1);
 }
