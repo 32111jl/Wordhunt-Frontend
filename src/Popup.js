@@ -24,7 +24,7 @@ function Popup({ wordList = [], onClose }) {
   const renderPopup = () => {
     if (wordList.length > 0) {
       return (
-        <div className={`popup ${darkMode ? 'dark-mode' : ''}`}>
+        <div className={`popup ${darkMode ? 'dark-mode' : 'light-mode'}`}>
           <div className="popup-inner">
             {/* <dialog open> */}
               <div className="popup-content">

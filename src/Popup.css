@@ -23,9 +23,11 @@
 
 .popup-content {
   min-height: 80vh;
-  width: 80vh;
+  width: 85%;
   flex: 1;
   overflow-y: auto;
+  white-space: normal;
+  word-break: break-word;
 }
 
 .popup-header {
@@ -33,7 +35,8 @@
   position: sticky;
   top: 1rem;
   margin: 2vh;
-  word-wrap: break-word;
+  /* white-space: normal;
+  word-break: break-word; */
 }
 
 .word-list {
@@ -83,10 +86,36 @@
 
 .popup.dark-mode {
   background-color: #212625;
+  animation: darkWave 1s ease-in-out forwards;
+  animation-direction: alternate;
 }
 
 .popup.dark-mode .popup-controls,
 .popup.dark-mode .popup-header,
 .popup.dark-mode .word-list li {
   filter: invert(1);
+  transition: filter 1s ease-in-out;
+}
+
+@keyframes darkWave {
+  0% {
+    background-color: #f7f2f8;
+  }
+  50% {
+    background-color: #212625;
+  }
+}
+
+.popup.light-mode {
+  animation: lightWave 1s ease-in-out;
+  /* transition: background-color 1s ease-in-out; */
+}
+
+@keyframes lightWave {
+  0% {
+    background-color: #212625;
+  }
+  50% {
+    background-color: #f7f2f8;
+  }
 }
