@@ -11,6 +11,11 @@
   z-index: 999;
   border: 2px solid transparent;
   /* adding border fixes dark/close buttons */
+  /* transition: opacity 1s ease-in-out, transform 1s ease-in-out; */
+  transition: clip-path 1s ease-in-out;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  /* opacity: 1; */
+  /* transform: translate(0, 0); */
 }
 
 .popup-inner {
@@ -66,13 +71,20 @@
   }
 }
 
-.dark-mode-button, .close-button {
+.dark-mode-button {
   background-color: transparent;
   border: none;
   padding: none;
   cursor: pointer;
 }
 
+.close-button {
+  background-color: transparent;
+  border: none;
+  padding: none;
+  cursor: pointer;
+  transition: transform 1s ease-in-out;
+}
 
 .dark-mode-icon {
   width: 1.5rem;
@@ -118,4 +130,9 @@
   50% {
     background-color: #f7f2f8;
   }
+}
+
+.popup.closed {
+  /* transform: translate(-100%, 100%); */
+  clip-path: polygon(0 0, 0% 0, 0% 100%, 0% 100%);
 }

@@ -7,6 +7,7 @@ import closeIcon from './bot-left-arrow.svg';
 function Popup({ wordList = [], onClose }) {
 
   const [darkMode, setDarkMode] = useState(false);
+  const [closed, setClosed] = useState(false);
   // const navigate = useNavigate();
 
   const handleToggleMode = () => {
@@ -16,15 +17,22 @@ function Popup({ wordList = [], onClose }) {
   const handleClose = () => {
     // window.location.href = '/';
     // navigate("/");
-    if (onClose) {
-      onClose();
-    }
+    // if (onClose) {
+    //   onClose();
+    //   setClosed(true);
+    // }
+    setClosed(true);
+    setTimeout(() => {
+      if (onClose) {
+        onClose();
+      }
+    }, 1000);
   };
 
   const renderPopup = () => {
     if (wordList.length > 0) {
       return (
-        <div className={`popup ${darkMode ? 'dark-mode' : 'light-mode'}`}>
+        <div className={`popup ${darkMode ? 'dark-mode' : 'light-mode'} ${closed ? 'closed' : ''}`}>
           <div className="popup-inner">
             {/* <dialog open> */}
               <div className="popup-content">
